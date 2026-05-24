@@ -6,26 +6,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity // Indica que esta classe é uma entidade JPA
-@Table(name = "produtos") // Especifica o nome da tabela no banco de dados
+@Entity
+@Table(name = "produtos")
 public class Produto {
-    @Id // Indica que este campo é a chave primária da tabela
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Especifica que o valor do ID será gerado automaticamente pelo
-                                                        // banco de dados
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
-    private double preco;
+    private Double preco;
 
-    public Produto() {
-    }
+    public Produto() {}
 
-    public Produto(String nome, double preco) {
+    public Produto(String nome, Double preco) {
         this.nome = nome;
         this.preco = preco;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -37,11 +36,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
+    
 }
