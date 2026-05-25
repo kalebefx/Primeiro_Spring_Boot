@@ -29,8 +29,10 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> request) {
-        Usuario usuario = usuarioService.registrarUsuario(request.get("username"),
-                passwordEncoder.encode(request.get("password")));
+        Usuario usuario = usuarioService.registrarUsuario(
+                request.get("username"),
+                request.get("password") // senha pura — o UsuarioService criptografa
+        );
         return ResponseEntity.ok(usuario);
     }
 
